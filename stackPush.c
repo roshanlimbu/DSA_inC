@@ -48,7 +48,7 @@ int main() {
 
   while (true) {
     printf("Item: ");
-    scanf("%d", &item);
+    scanf_s("%d", &item);
 
     if (item == -1)
       break;
