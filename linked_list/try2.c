@@ -4,7 +4,9 @@
 
 typedef struct Node {
   int data;
-  struct Node *next;
+  struct Node *next; // struct Node is for the data type of the pointer 
+  // since int is a data type for integere float for float values 
+  // since we're going to store the address we need to use whole name ie.-- struct Node  *pointerNname
 } Node;
 
 
