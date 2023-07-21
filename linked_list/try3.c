@@ -24,13 +24,33 @@ void insertNode(Node **head, int data){
   newNode->next = *head;
   *head = newNode;
 }
-// func to remove a node with the given data from teh list
-void removeNode(Node **head, int data){
+
+
+
+void removeNode(Node **head, int data) {
   Node *current = *head;
-  Node*prev= NULL;
+  Node *prev = NULL;
+
   // If the node to be removed is the head node
-  if(current !=NULL && current->data==data){
-    *head=current->next;
+  if (current != NULL && current->data == data) {
+    *head = current->next;
     free(current);
+    return;
   }
+
+  // Search for the node to be removed
+  while (current != NULL && current->data != data) {
+    prev = current;
+    current = current->next;
+  }
+
+  // If the node is not found
+  if (current == NULL) {
+    printf("Node with data %d not found.\n", data);
+    return;
+  }
+
+  // Remove the node from the list
+  prev->next = current->next;
+  free(current);
 }
