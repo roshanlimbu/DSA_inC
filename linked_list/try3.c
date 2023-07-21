@@ -24,4 +24,13 @@ void insertNode(Node **head, int data){
   newNode->next = *head;
   *head = newNode;
 }
-
+// func to remove a node with the given data from teh list
+void removeNode(Node **head, int data){
+  Node *current = *head;
+  Node*prev= NULL;
+  // If the node to be removed is the head node
+  if(current !=NULL && current->data==data){
+    *head=current->next;
+    free(current);
+  }
+}
