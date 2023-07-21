@@ -5,7 +5,7 @@
 
 #define MAX 10
 
-typedef struct {
+typedef struct stack {
   int data[MAX];
   int top;
 } Sp;
