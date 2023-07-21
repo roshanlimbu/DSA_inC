@@ -15,4 +15,13 @@ Node *createNode(int data){
   newNode->data=data; // this puts the new data to the new node
   newNode->next=NULL; // this puts the new node pointer to null as it would be at last
   return newNode;
+} 
+
+
+// func to insert a node at the beginning of the list
+void insertNode(Node **head, int data){
+  Node *newNode = createNode(data);
+  newNode->next = *head;
+  *head = newNode;
 }
+
