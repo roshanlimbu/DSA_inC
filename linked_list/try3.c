@@ -54,3 +54,18 @@ void removeNode(Node **head, int data) {
   prev->next = current->next;
   free(current);
 }
+// Function to display the linked list
+void displayList(Node *head) {
+  Node *current = head;
+  if (current == NULL) {
+    printf("List is empty.\n");
+    return;
+  }
+
+  printf("Linked List: ");
+  while (current != NULL) {
+    printf("%d ", current->data);
+    current = current->next;
+  }
+  printf("\n");
+}
