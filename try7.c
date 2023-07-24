@@ -19,3 +19,12 @@ bool isFull(Stack *stack){
   return stack->top==MAX-1;
 }
 
+void push(Stack *stack , int item){
+  if(isFull(stack)){
+    printf("Stack Overflow.");
+  } else {
+    stack->top++;
+    stack->data[stack->top] = item;
+    printf("%d was pushed to the stack.", item);
+  }
+}
