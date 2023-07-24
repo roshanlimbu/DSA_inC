@@ -38,3 +38,31 @@ void pop(Stack *stack ){
     printf("%d was removed from the stack.", item);
   }
 }
+void display(Stack *stack){
+  if(isEmpty(stack)){
+    printf("There is nothing to display.");
+  } else {
+    for (int i=stack->top; i>=0; i--){
+      printf("%d\t", stack->data[i]);
+    }
+  }
+  printf("\n");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
