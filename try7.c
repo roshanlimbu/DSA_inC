@@ -28,3 +28,13 @@ void push(Stack *stack , int item){
     printf("%d was pushed to the stack.", item);
   }
 }
+void pop(Stack *stack ){
+  int item;
+  if(isEmpty(stack)){
+    printf("Stack underflow.");
+  } else {
+    int item = stack->data[stack->top];
+    stack->top--;
+    printf("%d was removed from the stack.", item);
+  }
+}
