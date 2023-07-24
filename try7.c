@@ -49,20 +49,46 @@ void display(Stack *stack){
   printf("\n");
 }
 
+int main(){
+  int n;
+  int choice;
+  Stack stack;
+  initialize(&stack);
 
+  do {
+    printf("Choose any options: \n");
+    printf("\n1. Push ");
+    printf("\n2. Pop ");
+    printf("\n3. Display ");
+    printf("\n4. Exit ");
 
+    printf("\nEnter the choice: \n");
+    scanf_s("%d", &choice);
 
+    switch(choice){
+      case 1:
+        printf("\nEnter the data to be inserted: ");
+        scanf_s("%d", &n);
+        push(&stack, n);
+        break;
 
+      case 2: 
+        pop(&stack);
+        break;
 
+      case 3: 
+        display(&stack);
+        break;
 
+      case 4:
+        printf("Exiting\n");
+        break;
 
+      default:
+        printf("Invalid data.\n");
+        break;
+    }
+  } while(choice!=4);
 
-
-
-
-
-
-
-
-
-
+  return 0;
+}
