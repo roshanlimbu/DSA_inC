@@ -148,38 +148,38 @@ int main() {
         printf("6. Display List\n");
         printf("7. Exit\n");
         printf("Enter your choice: ");
-        scanf("%d", &choice);
+        scanf_s("%d", &choice);
 
         switch (choice) {
             case 1:
                 printf("Enter the data to insert: ");
-                scanf("%d", &data);
+                scanf_s("%d", &data);
                 insertAtFront(&list, data);
                 printf("Element inserted at the front.\n");
                 break;
             case 2:
                 printf("Enter the data to insert: ");
-                scanf("%d", &data);
+                scanf_s("%d", &data);
                 insertAtLast(&list, data);
                 printf("Element inserted at the last.\n");
                 break;
             case 3:
                 printf("Enter the key after which to insert: ");
-                scanf("%d", &key);
+                scanf_s("%d", &key);
                 printf("Enter the data to insert: ");
-                scanf("%d", &data);
+                scanf_s("%d", &data);
                 insertAfter(&list, key, data);
                 break;
             case 4:
                 printf("Enter the key before which to insert: ");
-                scanf("%d", &key);
+                scanf_s("%d", &key);
                 printf("Enter the data to insert: ");
-                scanf("%d", &data);
+                scanf_s("%d", &data);
                 insertBefore(&list, key, data);
                 break;
             case 5:
                 printf("Enter the key to remove: ");
-                scanf("%d", &key);
+                scanf_s("%d", &key);
                 removeFromList(&list, key);
                 break;
             case 6:
