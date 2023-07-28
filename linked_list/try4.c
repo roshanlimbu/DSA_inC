@@ -33,3 +33,12 @@ void insertAtEnd(Node **head, int data){
   }
   current->next = newNode;
 }
+void displayList(Node *head){
+  Node *current = head;
+  while(current!=NULL){
+    printf("%d->", current->data);
+    current=current->next;
+  }
+  printf("NULL\n");
+}
+
