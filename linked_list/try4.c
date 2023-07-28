@@ -41,4 +41,18 @@ void displayList(Node *head){
   }
   printf("NULL\n");
 }
+int main() {
+  Node *head = NULL;
 
+  insertAtEnd(&head, 10);
+  insertAtEnd(&head, 20);
+  insertAtBeginning(&head, 5);
+  insertAtEnd(&head, 30);
+
+  printf("Linked list elements: ");
+  displayList(head);
+
+  freeList(head);
+
+  return 0;
+}
