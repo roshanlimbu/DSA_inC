@@ -53,8 +53,10 @@ int dequeue(Queue* queue) {
         queue->front = -1;
         queue->rear = -1;
     } else {
+    // If there are more than one element, move the front pointer to the next element
         queue->front++;
     }
+
 
     return removedElement;
 }
@@ -98,6 +100,9 @@ int main() {
     int removedElement = dequeue(&queue);
     printf("Removed element: %d\n", removedElement); // Output: Removed element: 10
 
+    int removedElement2 = dequeue(&queue);
+    printf("Removed element: %d\n", removedElement2); // Output: Removed element: 10
+ 
     displayQueue(&queue); // Output: Queue elements: 20 30
 
     return 0;
