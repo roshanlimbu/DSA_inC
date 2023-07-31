@@ -20,3 +20,12 @@ bool isEmpty(Stack *stack){
 bool isFull(Stack *stack){
   return stack->top == MAX-1;
 }
+void push(Stack *stack, int item){
+  if(isFull(stack)){
+    printf("Stack overflow. Can't add new items");
+    exit(EXIT_FAILURE);
+  } else {
+    stack->top++;
+    stack->data[stack->top]=item;
+  }
+}
