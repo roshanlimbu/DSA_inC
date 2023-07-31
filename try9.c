@@ -22,10 +22,21 @@ bool isFull(Stack *stack){
 }
 void push(Stack *stack, int item){
   if(isFull(stack)){
-    printf("Stack overflow. Can't add new items");
+    printf("Stack overflow. Can't add new items.\n");
     exit(EXIT_FAILURE);
   } else {
     stack->top++;
     stack->data[stack->top]=item;
   }
 }
+void pop(Stack *stack){
+  int data;
+  if(isEmpty(stack)){
+    printf("Stack underflow.");
+    exit(EXIT_FAILURE);
+  } else {
+    data=stack->data[stack->top];
+    stack->top--;
+  }
+}
+
