@@ -43,10 +43,46 @@ void display(Stack *stack){
   if(isEmpty(stack)){
     printf("Stack underlflow.");
     exit(EXIT_FAILURE);
-  } esle {
+  } else {
     for(int i=stack->top; i>=0; i--){
       printf("%d\n", stack->data[i]);
     }
   }
 }
+int main(){
+  Stack stack;
+  initialize(&stack);
+  int choice;
+  int n=0; 
+  do {
+    printf("Enter the choice: \t \n1. Push \n2. Pop \n3. Display \n4. Exit\n");
+    scanf_s("%d\n",&choice );
+    switch (choice) {
+      case 1: 
+        printf("\nEnter the data to push \n");
+        scanf_s("%d", &n);
+        push(&stack,  n);
+        break;
+      case 2: 
+        pop(&stack);
+        break;
+      case 3:
+        display(&stack);
+        break;
+
+      case 4: 
+        exit(0);
+        break;
+
+      default:
+        printf("Invalid input.\n");
+        break;
+    }
+  }while (choice!=4);
+
+
+
+  return 0;
+}
+
 
