@@ -39,4 +39,14 @@ void pop(Stack *stack){
     stack->top--;
   }
 }
+void display(Stack *stack){
+  if(isEmpty(stack)){
+    printf("Stack underlflow.");
+    exit(EXIT_FAILURE);
+  } esle {
+    for(int i=stack->top; i>=0; i--){
+      printf("%d\n", stack->data[i]);
+    }
+  }
+}
 
