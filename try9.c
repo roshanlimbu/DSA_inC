@@ -14,3 +14,6 @@ typedef struct Stack{
 void initialize(Stack *stack){
   stack->top=-1;
 }
+bool isEmpty(Stack *stack){
+  return stack->top==-1;
+}
