@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 
 typedef struct Node {
@@ -56,4 +57,38 @@ void bstInsert(){
 
     }
 }
+
+void bstRemove(Node *r, int d){
+
+}
+
+
+bool isLeft(Node *p){
+    return (p->father)->left==p;
+}
+
+void getMinNode(Node *r){
+    while(r->left!=NULL){
+        r=r->left;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
