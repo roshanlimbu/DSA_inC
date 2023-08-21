@@ -61,3 +61,6 @@ void bstInsert(){
         }
     }
 }
+bool isLeft(Node *p){
+    return (p->father)->left==p;
+}
