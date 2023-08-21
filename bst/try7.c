@@ -62,10 +62,11 @@ bool isLeft(Node *p){
     return (p->father)->left==p;
 }
 
-void getMinNode (Node *r){
+Node * getMinNode (Node *r){
     while (r->left!=NULL) {
         r=r->left; 
     }
+    return r;
 }
 void inOrder(Node *r){
     if(r!=NULL){
