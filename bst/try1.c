@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <stdbool.h>
 typedef struct node {
     int info;
     struct node* left;
@@ -10,11 +10,11 @@ typedef struct node {
 
 Node* root = NULL;
 
-Node* getnode(int info) {
+Node* createNode(int info) {
     Node* ptrnew = (Node*)malloc(sizeof(Node));
     if (ptrnew == NULL) {
         printf("Memory allocation failed.");
-        exit(0);
+        exit(1);
     }
     ptrnew->info = info;
     ptrnew->father = ptrnew->left = ptrnew->right = NULL;
@@ -26,7 +26,7 @@ void bstInsert() {
     Node* ptrnew, * parent = NULL, * curr = root;
     printf("Enter a number to be inserted: ");
     scanf("%d", &n);
-    ptrnew = getnode(n);
+    ptrnew = createNode(n);
     while (1) {
         if (curr == NULL) {
             if (root == NULL) {
@@ -57,17 +57,22 @@ void bstInsert() {
     }
 }
 
-int isLeft(Node* p) {
-    if ((p->father)->left == p)
-        return 1;
-    else
-        return 0;
+bool isLeft(Node* p) {
+    return  (p->father)->left == p;
 }
 
 Node* getMinNode(Node* r) {
     while (r->left != NULL)
         r = r->left;
     return r;
+}
+Node* freeMemory(Node* r) {
+    if (r != NULL) {
+        freeMemory(r->left);
+        freeMemory(r->right);
+        free(r);
+    }
+    return 0;
 }
 
 void bstRemove(Node* r, int d) {
@@ -193,9 +198,10 @@ int main() {
                 search(root);
                 break;
             case '7':
-                return 0;
+            freeMemory(root);
+            exit(0);
         }
-        getchar();
+        while(getchar()!='\n');
     }
     return 0;
 }
