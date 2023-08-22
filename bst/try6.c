@@ -30,7 +30,7 @@ void bstInsert(){
     printf("Enter the data to insert: \n");
     scanf("%d", &info);
     ptrnew=createNode(info);
-    
+
     while(1){
         if(curr==NULL){
             if(root==NULL){
@@ -56,19 +56,40 @@ void bstInsert(){
         }
     }
 }
-void bstRemove(Node *r, int d){
-
-}
 
 bool isLeft(Node *p){
     return (p->father)->left==p;
 }
+
 Node * getMinNode(Node *r){
     while(r->left!=NULL){
         r=r->left;
     }
     return r;
 }
+void bstRemove(Node *r, int d){
+    if(r==NULL){
+        printf("Node not found.\n");
+        return;
+    }
+    if(d<r->info){
+        bstRemove(r->left, d);
+    } else if(d>r->info){
+        bstRemove(r->right,  d);
+    } else {
+        if(r->left==NULL && r->right==NULL){
+            if(r==root){
+                root = NULL;
+            } else if(isLeft(r)){
+                (r->father)->left=NULL;
+            } else {
+                (r->father)->right=NULL;
+            }
+            free(r);
+        }
+    }
+}
+
 
 void inOrder(Node *r){
     if(r!=NULL){
