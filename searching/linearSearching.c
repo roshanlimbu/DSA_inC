@@ -23,7 +23,7 @@ int main(){
   if(found==-1){
     printf("%d does not exist in the array.", key);
   } else {
-    printf("%d is found in the array", key);
+    printf("%d is found in the array at position %d", key, key+1);
   }
   return 0;
 }
