@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #define MAX 10
@@ -24,7 +23,7 @@ void push(Stack *stack){
     printf("Stack overflow.\n");
   } else{
     printf("Enter the item you want to insert: ");
-    scanf_s("%d", &n);
+    scanf("%d", &n);
     stack->top++;
     stack->data[stack->top]=n;
     printf("The item %d was pushed. \n", n);
@@ -64,7 +63,7 @@ int main(){
     printf("\n3. Display");
     printf("\n4. Exit");
     printf("\nEnter the choice:");
-    scanf_s("%d", &choice);
+    scanf("%d", &choice);
     
     switch(choice){
       case 1: 
