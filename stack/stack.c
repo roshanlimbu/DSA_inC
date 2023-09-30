@@ -35,6 +35,7 @@ void push(Stack *stack){
 }
 
 
+
 int main(){
   Stack stack;
   initialize(&stack);
