@@ -1,4 +1,10 @@
-shell sort
 binary sort
 heap sort as priorit q
+
+deterministic and non-deterministic algorithm
+divide and conquer algorithm
+greedy algorithm
+dijkstra's algorithm
+kruskal's algoritm
+linear and double hashing on followint data{};
 
