@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 void bubbleSort(int arr[], int n) {
-  int tempArr, i, j, flag ;
+  int tempArr, i, j, flag;
   for (i = 0; i < n - 1; i++) {
     flag = 1;
     for (j = 0; j < n - i - 1; j++) {
@@ -11,10 +10,11 @@ void bubbleSort(int arr[], int n) {
         tempArr = arr[j];
         arr[j] = arr[j + 1];
         arr[j + 1] = tempArr;
-        flag=0;
+        flag = 0;
       }
     }
-    if(flag==1) break;
+    if (flag == 1)
+      break;
   }
 }
 
@@ -37,4 +37,3 @@ int main() {
 
   return 0;
 }
-

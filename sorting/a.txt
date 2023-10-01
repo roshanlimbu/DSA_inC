@@ -1,0 +1,4 @@
+shell sort
+binary sort
+heap sort as priorit q
+
