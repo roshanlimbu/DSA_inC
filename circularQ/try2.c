@@ -28,3 +28,4 @@ void enQ(Queue *queue, int n) {
   queue->data[queue->rear] = n;
   printf("\n%d inserted in the queue.\n", n);
 }
+

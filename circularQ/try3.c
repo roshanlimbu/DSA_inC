@@ -8,3 +8,6 @@ typedef struct queue{
   int front;
   int rear;
 } Queue;
+void initialize(Queue *queue){
+
+}
