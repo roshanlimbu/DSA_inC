@@ -75,49 +75,82 @@ Node* freeMemory(Node* r) {
   return 0;
 }
 
-void bstRemove(Node* r, int d) {
-  Node* temp;
-  if (r == NULL)
-    printf("%d does not exist in the tree.\n", d);
-  else if (r->info == d) {
-    if (r->left == NULL && r->right == NULL) {
-      if (r->father == NULL)
-        root = NULL;
-      else if (isLeft(r))
-        (r->father)->left = NULL;
-      else
-        (r->father)->right = NULL;
-      free(r);
-    } else if (r->left == NULL) {
-      if (r->father == NULL)
-        root = r->right;
-      else if (isLeft(r))
-        (r->father)->left = r->right;
-      else
-        (r->father)->right = r->right;
-      free(r);
-    } else if (r->right == NULL) {
-      if (r->father == NULL)
-        root = r->left;
-      else if (isLeft(r))
-        (r->father)->left = r->left;
-      else
-        (r->father)->right = r->left;
-      free(r);
-    } else {
-      temp = getMinNode(r->right);
-      r->info = temp->info;
-      temp->info = d;
-      bstRemove(temp, d);
-      return;
+Node* bstRemove(Node* r, int target) {
+    if (r == NULL) {
+        printf("%d does not exist in the tree.\n", target);
+        return r;
     }
-    printf("%d removed from the tree.\n", d);
-  }
-  else if (r->info > d)
-    bstRemove(r->left, d);
-  else
-    bstRemove(r->right, d);
+
+    if (target < r->info) {
+        r->left = bstRemove(r->left, target);
+    } else if (target > r->info) {
+        r->right = bstRemove(r->right, target);
+    } else {
+        // Node with the target value found
+
+        // Case 1: Node with only one child or no child
+        if (r->left == NULL) {
+            Node* temp = r->right;
+            free(r);
+            return temp;
+        } else if (r->right == NULL) {
+            Node* temp = r->left;
+            free(r);
+            return temp;
+        }
+
+        // Case 2: Node with two children
+        Node* temp = getMinNode(r->right);
+        r->info = temp->info;
+        r->right = bstRemove(r->right, temp->info);
+    }
+    return r;
 }
+
+
+// void bstRemove(Node* r, int d) {
+//   Node* temp;
+//   if (r == NULL)
+//     printf("%d does not exist in the tree.\n", d);
+//   else if (r->info == d) {
+//     if (r->left == NULL && r->right == NULL) {
+//       if (r->father == NULL)
+//         root = NULL;
+//       else if (isLeft(r))
+//         (r->father)->left = NULL;
+//       else
+//         (r->father)->right = NULL;
+//       free(r);
+//     } else if (r->left == NULL) {
+//       if (r->father == NULL)
+//         root = r->right;
+//       else if (isLeft(r))
+//         (r->father)->left = r->right;
+//       else
+//         (r->father)->right = r->right;
+//       free(r);
+//     } else if (r->right == NULL) {
+//       if (r->father == NULL)
+//         root = r->left;
+//       else if (isLeft(r))
+//         (r->father)->left = r->left;
+//       else
+//         (r->father)->right = r->left;
+//       free(r);
+//     } else {
+//       temp = getMinNode(r->right);
+//       r->info = temp->info;
+//       temp->info = d;
+//       bstRemove(temp, d);
+//       return;
+//     }
+//     printf("%d removed from the tree.\n", d);
+//   }
+//   else if (r->info > d)
+//     bstRemove(r->left, d);
+//   else
+//     bstRemove(r->right, d);
+// }
 
 void inorder(Node* r) {
   if (r != NULL) {
