@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -56,11 +55,11 @@ int main(){
   int n=0; 
   do {
     printf("Enter the choice: \t \n1. Push \n2. Pop \n3. Display \n4. Exit\n");
-    scanf_s("%d\n",&choice );
+    scanf("%d\n",&choice );
     switch (choice) {
       case 1: 
         printf("\nEnter the data to push \n");
-        scanf_s("%d", &n);
+        scanf("%d", &n);
         push(&stack,  n);
         break;
       case 2: 
